@@ -34,7 +34,7 @@ jobs:
       -
         uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 16
           cache: 'npm'
           cache-dependency-path: |
             src/package-lock.json
@@ -92,7 +92,7 @@ jobs:
         name: Remove standard frontend test files
         run: rm -rf src/tests/frontend/specs
       -
-        uses: saucelabs/sauce-connect-action@v2.2.0
+        uses: saucelabs/sauce-connect-action@v2.3.2
         with:
           username: ${{ secrets.SAUCE_USERNAME }}
           accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
