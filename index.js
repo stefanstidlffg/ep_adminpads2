@@ -55,9 +55,7 @@ const search = async (query) => {
     entry.lastEdited = await pad.getLastEdit();
   }));
 
-  const sorted = data.results.sort(function(a, b) {
-    return a.lastEdited - b.lastEdited;
-  });
+  const sorted = data.results.sort((a, b) => a.lastEdited - b.lastEdited);
   data.results = sorted.slice(query.offset, query.offset + query.limit);
 
   return data;
