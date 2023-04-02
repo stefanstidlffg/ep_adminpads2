@@ -1,6 +1,6 @@
 'use strict';
 
-const $ = require('cheerio');
+const cheerio = require('cheerio');
 const eejs = require('ep_etherpad-lite/node/eejs');
 const padManager = require('ep_etherpad-lite/node/db/PadManager');
 const api = require('ep_etherpad-lite/node/db/API');
@@ -104,6 +104,7 @@ exports.padRemove = updatePads;
 exports.padCreate = updatePads;
 
 exports.eejsBlock_adminMenu = (hookName, context, cb) => {
+  const $ = cheerio.load("");
   const ul = $('<ul>').html(context.content);
   const pfx = ul.find('li a').attr('href').match(/^((?:\.\.\/)*)/)[1];
   ul.append(
